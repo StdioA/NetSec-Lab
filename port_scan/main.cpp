@@ -17,16 +17,18 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+	char *host;
+	int start_port, end_port;
+
 	if (strcmp(argv[1], "-d") == 0)
 	{
 		struct netstat *status;
 		char *iface = argv[2];
-		int start_port = atoi(argv[3]);
-		int end_port = atoi(argv[4]);
-		char *host;
 		unsigned long maskip;
 		int negmask;
 		struct in_addr in;
+		start_port = atoi(argv[3]);
+		end_port = atoi(argv[4]);
 
 		status = get_stat(iface);
 		in.s_addr = ntohl(status->ip);
@@ -52,10 +54,10 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		char *host = argv[1];
 		char buf[32];
-		int start_port = atoi(argv[2]);
-		int end_port = atoi(argv[3]);
+		host = argv[1];
+		start_port = atoi(argv[2]);
+		end_port = atoi(argv[3]);
 		// host处理
 		if (inet_pton(AF_INET, host, buf) != 1)
 		{
