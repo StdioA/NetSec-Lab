@@ -56,6 +56,8 @@ int main(int argc, char *argv[])
 		return 2;
 	}
 
+	printf("Sniffer is started & listening ARP packets.\n");
+	printf("Press Ctrl+C to quit.\n");
 	pcap_loop(handle, -1, packet_callback, NULL);
 	// pcap_loop(handle, num_packets, packet_callback, NULL);
 	pcap_close(handle);
