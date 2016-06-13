@@ -29,3 +29,6 @@
 * [C program to get ip address from interface name on Linux](http://www.binarytides.com/c-program-to-get-ip-address-from-interface-name-on-linux/)
 * [Programming with pacp](http://www.tcpdump.org/pcap.html)
 * [地址解析协议](https://zh.wikipedia.org/wiki/地址解析协议)
+
+## License
+因为后面还要检查作业/答辩，所以目前保留所有权利。
