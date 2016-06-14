@@ -87,7 +87,7 @@ void packet_callback(u_char *args, const struct pcap_pkthdr *header, const u_cha
 
 int main(int argc, char *argv[])
 {
-	char dev[20], errbuf[PCAP_ERRBUF_SIZE];
+	char *dev, errbuf[PCAP_ERRBUF_SIZE];
 	pcap_t *handle;
 	struct bpf_program fp;
 	char filter_exp[] = "arp or ip";
@@ -95,9 +95,14 @@ int main(int argc, char *argv[])
 	struct pcap_pkthdr header;
 	const u_char *packet;
 	int num_packets = 10;
-	
-	strcpy(dev, "enp0s8");
 
+	if (argc < 2)
+	{
+		printf("Usage:\n    %s <device name>\n", argv[0]);
+		return 1;
+	}
+	dev = argv[1];
+	
 	if (pcap_lookupnet(dev, &net, &mask, errbuf) == -1)
 	{
 		fprintf(stderr, "Can't get netmask for device %s\n", dev);
