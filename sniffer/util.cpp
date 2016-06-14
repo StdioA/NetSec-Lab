@@ -15,14 +15,3 @@ char *mac_to_str(const unsigned char *mac)
 
 	return mac_str;
 }
-
-char *ip_to_str(const unsigned char *ip)
-{
-	char *ip_str;
-	// unsigned char *ip_p = (unsigned char *)&ip;
-
-	ip_str = (char *)malloc(20);
-	sprintf(ip_str, "%d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3]);
-
-	return ip_str;
-}
